@@ -20,8 +20,8 @@ class Pet(object):
         self.bored_counter = 2
         self.upset = False
         self.upset_counter = 0
-        self.violent = False
-        self.violent_counter = 0
+        self.neglect = False
+        self.neglect_counter = 0
         self.sleepy = False 
         self.awake = True
         self.weight = 5.0
@@ -30,7 +30,7 @@ class Pet(object):
         # self.upset_messages = {
         #     1: "Meh",
         #     3: "I'm kinda upset right now ... ",
-        #     6: "Now you're gonna die"
+        #     6: "Bye bye..."
         # }
 
     def stats(self): 
@@ -67,10 +67,10 @@ class Pet(object):
             elif self.upset_counter == 4:
                 print(Fore.CYAN + "I'M REALLY UPSET - FIX THIS NOW!!")
             elif self.upset_counter == 5:
-                print(Fore.CYAN + "FIX THIS NOW GODS DAMNIT - YOU FUCKING TERRIBLE OWNER!!")
+                print(Fore.CYAN + "FIX THIS NOW! -JEEZ!!!  YOU'RE A TERRIBLE OWNER!!")
             elif self.upset_counter >= 6:
-                print(Fore.CYAN + "Now you're gonna die")
-                self.violent = True 
+                print(Fore.CYAN + "Bye Bye...")
+                self.neglect = True 
 
     def bored_check(self): 
         if self.bored_counter <= 0:
@@ -94,9 +94,9 @@ class Pet(object):
                 print(Fore.CYAN + "\nLook, I like you and all, but you're really not That Interesting")
             elif self.violent_counter < 5:
                 self.upset_counter += 1
-                print(Fore.CYAN + "\nYou're boring - Fuck Off")
-            elif self.violent_counter >= 6:
-                self.violent == True
+                print(Fore.CYAN + "\nYou're boring... Do something fun. ")
+            elif self.neglect_counter >= 6:
+                self.neglect== True
 
     def hungry_check(self):
         if self.hungry_counter <= 0:
@@ -137,7 +137,7 @@ class Pet(object):
         self.bored_check()
 
     def ignore(self):
-        print(Fore.CYAN + "\nWow - Fuck You. Pay attention to me")
+        print(Fore.CYAN + "\nUhh...  Can you pay attention to me please?")
         
         if self.upset_counter == 2:
             self.upset_counter += 1
@@ -147,9 +147,9 @@ class Pet(object):
         self.hungry_counter += 1
 
     def throw(self):
-        print(Fore.CYAN + "\nWHY THE FUCK WOULD YOU THROW ME???!")
+        print(Fore.CYAN + "\nDon't throw me!")
         self.upset_counter += 2
-        self.violent_counter += 2
+        self.neglect_counter += 2
 
     def talk(self):
 
@@ -232,12 +232,12 @@ def menu(player_pet_choice):
 
 def game_over_check(pet, pet_violent, pet_starved, game_running): #Add in checks for Starvation & Stuff
     if pet_violent:
-        print(pet, "Is Violent", pet_violent)
-        print(pet, "Killed You.  You Lose")
+        print(pet, "Is Upset with you", pet_violent)
+        print(pet "ran away...  You Lose")
         return False
     if pet_starved:
         print(pet, "Has Starved")
-        print("You Have Killed", pet, "\nYou Lose")
+        print(, pet "has died..." "\nYou Lose")
         return False
 
     return game_running, True
@@ -248,7 +248,7 @@ def game_loop(player_pet_choice, pet_type, pet_name, hour, AMPM, Cat):
     while game_running:
 
         time = [hour, AMPM]
-        player_pet_choice.violent_check()
+        player_pet_choice.neglect_check()
         player_pet_choice.bored_check()
         player_pet_choice.hungry_check()
         player_pet_choice.upset_check()
@@ -275,7 +275,7 @@ def game_loop(player_pet_choice, pet_type, pet_name, hour, AMPM, Cat):
 
         clock.tick(60) 
         pygame.time.delay(3000)
-        game_running = game_over_check(player_pet_choice.name, player_pet_choice.violent, player_pet_choice.starved, game_running)
+        game_running = game_over_check(player_pet_choice.name, player_pet_choice.neglect, player_pet_choice.starved, game_running)
 
         
         if game_running == False:
