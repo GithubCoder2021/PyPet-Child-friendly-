@@ -33,7 +33,7 @@ In the meantime:
 &nbsp;&nbsp; **4a. &nbsp;**  The Sleepy mechanic will take into account that sleeping beyond Noon or Midnight will cause a Bug in the AMPM Switch Structure<br>
 &nbsp;&nbsp;&nbsp;&nbsp; **5. &nbsp;**  Implement a 1-10 Scale (instead of 1-5) for all the Counters to give the player Extended Gameplay<br>
 &nbsp;&nbsp;&nbsp;&nbsp; **6. &nbsp;**   Work on Implementing a System so that Every Animal Type does not need to be Instantiated at the beginning of the File.  Instead, only the Player's choice will be Instantiated.  This could possibly be done with Global Variables.<br>
-&nbsp;&nbsp;&nbsp;&nbsp; **7. &nbsp;**  Include a Violence Warning from the System, when the Pet is highly inclined towards Violence.  This indicates the the player has not been treating their Pet Well.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; **7. &nbsp;**  Include a Neglect Warning from the System, when the Pet is highly inclined towards neglect.  This indicates the the player has not been treating their Pet Well.<br>
 &nbsp;&nbsp;&nbsp;&nbsp; **8. &nbsp;**  Develop Differentiated Output Messages from the Hungry/Bored/Upset/Violent Checks, based on the Animal the player chose:<br>
 &nbsp;&nbsp; **8a. &nbsp;**  This could be achieved by defining each check for each animal separately within the class (and then using player_pet_choice) to call the appropriate function<br>
 &nbsp;&nbsp; **8b. &nbsp;**  This could also be achieved by creating Subclasses for each Pet Type that inherit from the Pet Class
@@ -41,7 +41,7 @@ In the meantime:
 
 ###Bugs to Fix for Version 1.3:
 &nbsp;&nbsp;&nbsp;&nbsp; **1. &nbsp;**  bored_check() outputs comments that are too similar/all the same<br>
-&nbsp;&nbsp;&nbsp;&nbsp; **2. &nbsp;**  Violence is not initiated soon enough.  Based on the violence_counter, it should come into play after the 3rd Throw action, but it is not coming into play until the 4th.<br>
+&nbsp;&nbsp;&nbsp;&nbsp; **2. &nbsp;**  Neglect is not initiated soon enough.  Based on the neglect_counter, it should come into play after the 3rd Throw action, but it is not coming into play until the 4th.<br>
 &nbsp;&nbsp;&nbsp;&nbsp; **3. &nbsp;**  Check if Pygame's clock.tick() function is actually needed<br>
 &nbsp;&nbsp; **3a. &nbsp;**  Move "Time/AMPM adjustment" into a Function if possible
 
